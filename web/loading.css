@@ -1,0 +1,174 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color: #354052;
+  background: #f3f5f7;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgb(112 71 189 / 8%), transparent 42%),
+    #f3f5f7;
+}
+
+.startup {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  justify-items: center;
+  padding: 32px 20px;
+  animation: startup-arrive .55s ease both;
+}
+
+.startup-card {
+  display: flex;
+  width: min(100%, 380px);
+  flex-direction: column;
+  align-items: center;
+  padding: 39px 36px 34px;
+  border: 1px solid rgb(224 228 233 / 85%);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 84%);
+  box-shadow: 0 18px 55px rgb(34 43 58 / 8%);
+  text-align: center;
+  backdrop-filter: blur(12px);
+}
+
+.loader-art {
+  position: relative;
+  display: grid;
+  width: 92px;
+  height: 92px;
+  place-items: center;
+  margin-bottom: 25px;
+}
+
+.loader-orbit {
+  position: absolute;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+.loader-orbit-outer {
+  inset: 3px;
+  border-top-color: #7047bd;
+  border-right-color: rgb(112 71 189 / 18%);
+  animation: orbit-spin 1.8s linear infinite;
+}
+
+.loader-orbit-inner {
+  inset: 13px;
+  border-bottom-color: #a38bd2;
+  border-left-color: rgb(112 71 189 / 16%);
+  animation: orbit-spin 1.35s linear infinite reverse;
+}
+
+.loader-core {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border-radius: 15px;
+  background: #f4f0fb;
+  box-shadow: 0 5px 16px rgb(80 54 130 / 13%);
+  animation: core-pulse 2s ease-in-out infinite;
+}
+
+.loader-core img { width: 35px; height: 35px; border-radius: 9px; }
+
+.startup-eyebrow {
+  margin: 0 0 9px;
+  color: #7047bd;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+}
+
+.startup h1 {
+  margin: 0;
+  color: #293344;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -.5px;
+}
+
+.startup-message {
+  min-height: 20px;
+  margin: 9px 0 23px;
+  color: #788496;
+  font-size: 12px;
+}
+
+.startup-progress {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 4px;
+  border-radius: 99px;
+  background: #e9e5f1;
+}
+
+.startup-progress span {
+  position: absolute;
+  width: 38%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #9274ca, #7047bd);
+  animation: progress-slide 1.5s ease-in-out infinite;
+}
+
+#startup-retry {
+  margin-top: 15px;
+  padding: 7px 12px;
+  border: 1px solid #dcd3ed;
+  border-radius: 7px;
+  color: #6340a6;
+  background: #f8f5fc;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+}
+
+#startup-retry:hover { background: #f0eafa; }
+#startup-retry[hidden] { display: none; }
+
+.startup-footnote {
+  margin: 18px 0 0;
+  color: #929eae;
+  font-size: 10px;
+}
+
+body.startup-exit .startup {
+  opacity: 0;
+  transform: translateY(-7px) scale(.99);
+  transition: opacity .32s ease, transform .32s ease;
+}
+
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes core-pulse {
+  50% { transform: scale(.94); box-shadow: 0 2px 8px rgb(80 54 130 / 9%); }
+}
+@keyframes progress-slide {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(370%); }
+}
+@keyframes startup-arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f5f7">
+  <title>Starting MediaFire Downloader</title>
+  <link rel="icon" type="image/png" href="/app-icon.png">
+  <link rel="stylesheet" href="/loading.css">
+  <script src="/loading.js" defer></script>
+</head>
+<body>
+  <main class="startup" aria-labelledby="startup-title">
+    <div class="startup-card">
+      <div class="loader-art" aria-hidden="true">
+        <div class="loader-orbit loader-orbit-outer"></div>
+        <div class="loader-orbit loader-orbit-inner"></div>
+        <div class="loader-core">
+          <img src="/app-icon.png" alt="">
+        </div>
+      </div>
+      <p class="startup-eyebrow">MEDIAFIRE DOWNLOADER</p>
+      <h1 id="startup-title">Getting things ready</h1>
+      <p class="startup-message" id="startup-message" role="status" aria-live="polite">
+        Preparing your workspace…
+      </p>
+      <div class="startup-progress" aria-hidden="true">
+        <span></span>
+      </div>
+      <button id="startup-retry" type="button" hidden>Try again</button>
+    </div>
+    <p class="startup-footnote">This usually takes just a moment</p>
+  </main>
+</body>
+</html>

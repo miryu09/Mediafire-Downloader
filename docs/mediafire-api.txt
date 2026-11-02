@@ -1,0 +1,34 @@
+Mediafire's API:
+
+# Get file info
+POST https://www.mediafire.com/api/1.5/file/get_info.php
+quick_key=FILE_KEY
+response_format=json
+
+# Get folder info
+POST https://www.mediafire.com/api/1.4/folder/get_info.php
+recursive=yes
+folder_key=FOLDER_KEY
+response_format=json
+
+# List folders in folder
+GET https://www.mediafire.com/api/1.4/folder/get_content.php
+content_type=folders
+filter=all
+order_by=name
+order_direction=asc
+chunk=1
+version=1.5
+folder_key=FOLDER_KEY
+response_format=json
+
+# List files in folder
+GET https://www.mediafire.com/api/1.4/folder/get_content.php
+content_type=files
+filter=all
+order_by=name
+order_direction=asc
+chunk=1
+version=1.5
+folder_key=FOLDER_KEY
+response_format=json
